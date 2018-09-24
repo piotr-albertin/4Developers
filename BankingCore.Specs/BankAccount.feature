@@ -28,6 +28,10 @@ Scenario: Multiple deposit money to a bank account
 
 
 Scenario: Withdraw money from a bank account
-	When I deposit 1000
-		And I withdraw 200
-	Then My account balance should be 800
+	When I have performed following transactions
+	| transaction | amount |
+	| deposit     | 100    |
+	| deposit     | 300    |
+	| withdraw    | 200    |
+	| withdraw    | 100    |
+	Then My account balance should be 100

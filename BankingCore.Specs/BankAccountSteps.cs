@@ -14,7 +14,7 @@ namespace BankingCore.Specs
         {
             bankAccount = new BankAccount();
         }
-        
+
         [When(@"I deposit (.*)")]
         public void WhenIDepositAmount(decimal amount)
         {
@@ -26,6 +26,26 @@ namespace BankingCore.Specs
         {
             bankAccount.Withdraw(amount);
         }
+
+        [When(@"I have performed following transactions")]
+        public void WhenIHavePerformedFollowingTransactions(Table table)
+        {
+            foreach (var row in table.Rows)
+            {
+                var transaction = row["transaction"];
+                var amount = decimal.Parse(row["amount"]);
+
+                if (transaction == "deposit")
+                {
+                    bankAccount.Deposit(amount);
+                }
+                else if (transaction == "withdraw")
+                {
+                    bankAccount.Withdraw(amount);
+                }
+            }
+        }
+
 
         [Then(@"My account balance should be (.*)")]
         public void ThenMyAccountBalanceShouldBeAmount(decimal amount)

@@ -143,12 +143,26 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line 7
 this.FeatureBackground();
+#line hidden
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                        "transaction",
+                        "amount"});
+            table1.AddRow(new string[] {
+                        "deposit",
+                        "100"});
+            table1.AddRow(new string[] {
+                        "deposit",
+                        "300"});
+            table1.AddRow(new string[] {
+                        "withdraw",
+                        "200"});
+            table1.AddRow(new string[] {
+                        "withdraw",
+                        "100"});
 #line 31
- testRunner.When("I deposit 1000", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 32
-  testRunner.And("I withdraw 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 33
- testRunner.Then("My account balance should be 800", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("I have performed following transactions", ((string)(null)), table1, "When ");
+#line 37
+ testRunner.Then("My account balance should be 100", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
