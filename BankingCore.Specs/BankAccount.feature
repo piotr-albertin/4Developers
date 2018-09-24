@@ -7,9 +7,18 @@
 Background: 
 	Given I own a new bank account
 
-Scenario: Deposit money to a bank account
-	When I deposit 100
-	Then My account balance should be 100
+
+Scenario Outline: Deposit money to a bank account
+	When I deposit <deposit1>
+		And  I deposit <deposit2>
+	Then My account balance should be <balance>
+
+	Examples: 
+	| deposit1 | deposit2 | balance |
+	| 100      | 200      | 300     |
+	| 100      | 500      | 600     |
+	| 0        | 100      | 100     |
+
 
 Scenario: Multiple deposit money to a bank account
 	When I deposit 100

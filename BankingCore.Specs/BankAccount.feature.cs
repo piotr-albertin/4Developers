@@ -85,21 +85,26 @@ namespace BankingCore.Specs
             this.ScenarioTearDown();
         }
         
-        [Xunit.FactAttribute(DisplayName="Deposit money to a bank account")]
+        [Xunit.TheoryAttribute(DisplayName="Deposit money to a bank account")]
         [Xunit.TraitAttribute("FeatureTitle", "BankAccount")]
         [Xunit.TraitAttribute("Description", "Deposit money to a bank account")]
-        public virtual void DepositMoneyToABankAccount()
+        [Xunit.InlineDataAttribute("100", "200", "300", new string[0])]
+        [Xunit.InlineDataAttribute("100", "500", "600", new string[0])]
+        [Xunit.InlineDataAttribute("0", "100", "100", new string[0])]
+        public virtual void DepositMoneyToABankAccount(string deposit1, string deposit2, string balance, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Deposit money to a bank account", null, ((string[])(null)));
-#line 10
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Deposit money to a bank account", null, exampleTags);
+#line 11
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line 7
 this.FeatureBackground();
-#line 11
- testRunner.When("I deposit 100", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 12
- testRunner.Then("My account balance should be 100", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When(string.Format("I deposit {0}", deposit1), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 13
+  testRunner.And(string.Format("I deposit {0}", deposit2), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 14
+ testRunner.Then(string.Format("My account balance should be {0}", balance), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -110,18 +115,18 @@ this.FeatureBackground();
         public virtual void MultipleDepositMoneyToABankAccount()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Multiple deposit money to a bank account", null, ((string[])(null)));
-#line 14
+#line 23
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line 7
 this.FeatureBackground();
-#line 15
+#line 24
  testRunner.When("I deposit 100", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 16
+#line 25
   testRunner.And("I deposit 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 17
+#line 26
   testRunner.And("I deposit 50", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 18
+#line 27
  testRunner.Then("My account balance should be 350", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
