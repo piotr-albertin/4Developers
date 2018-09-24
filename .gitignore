@@ -1,0 +1,9 @@
+Output
+Packages
+!Packages\repositories.config
+**/.vs/
+**/bin/Release/
+**/bin/Debug/
+**/obj/Release/
+**/obj/Debug/
+*.suo
