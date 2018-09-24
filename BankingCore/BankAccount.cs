@@ -13,7 +13,13 @@
             }
         }
 
-
+        public void Withdraw(decimal amount)
+        {
+            if (Balance >= amount)
+            {
+                Balance -= amount;
+            }
+        }
 
     }
 }

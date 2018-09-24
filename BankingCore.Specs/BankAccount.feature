@@ -25,3 +25,9 @@ Scenario: Multiple deposit money to a bank account
 		And I deposit 200
 		And I deposit 50
 	Then My account balance should be 350
+
+
+Scenario: Withdraw money from a bank account
+	When I deposit 1000
+		And I withdraw 200
+	Then My account balance should be 800

@@ -21,6 +21,12 @@ namespace BankingCore.Specs
             bankAccount.Deposit(amount);
         }
 
+        [When(@"I withdraw (.*)")]
+        public void WhenIWithdrawAmount(int amount)
+        {
+            bankAccount.Withdraw(amount);
+        }
+
         [Then(@"My account balance should be (.*)")]
         public void ThenMyAccountBalanceShouldBeAmount(decimal amount)
         {
