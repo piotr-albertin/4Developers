@@ -12,6 +12,6 @@ Scenario: Deposit money to a bank account
 Scenario: Multiple deposit money to a bank account
 	Given I own a new bank account
 	When I deposit 100
-	#ten krok jest zduplikowany - trzeba go sparametryzowac
-	When I deposit 200
-	Then My account balance should be 300
+		And I deposit 200
+		And I deposit 50
+	Then My account balance should be 350

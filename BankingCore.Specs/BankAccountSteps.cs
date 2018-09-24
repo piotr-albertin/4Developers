@@ -15,30 +15,17 @@ namespace BankingCore.Specs
             bankAccount = new BankAccount();
         }
         
-        [When(@"I deposit 100")]
-        public void WhenIDeposit100()
+        [When(@"I deposit (.*)")]
+        public void WhenIDepositAmount(decimal amount)
         {
-            bankAccount.Deposit(100);
-        }
-        
-        [When]
-        public void When_I_deposit_200()
-        {
-            bankAccount.Deposit(200);
+            bankAccount.Deposit(amount);
         }
 
-        [Then(@"My account balance should be 100")]
-        public void ThenMyAccountBalanceShouldBe100()
+        [Then(@"My account balance should be (.*)")]
+        public void ThenMyAccountBalanceShouldBeAmount(decimal amount)
         {
-            Assert.Equal(100, bankAccount.Balance);
+            Assert.Equal(amount, bankAccount.Balance);
         }
-        
-        [Then]
-        public void ThenMyAccountBalanceShouldBe_300()
-        {
-            Assert.Equal(300, bankAccount.Balance);
-        }
-
 
     }
 }

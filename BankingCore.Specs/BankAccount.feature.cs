@@ -111,10 +111,12 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Given("I own a new bank account", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 14
  testRunner.When("I deposit 100", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 15
+  testRunner.And("I deposit 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 16
- testRunner.When("I deposit 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+  testRunner.And("I deposit 50", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 17
- testRunner.Then("My account balance should be 300", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("My account balance should be 350", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
